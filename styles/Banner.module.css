@@ -1,0 +1,94 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.bg__img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.bg__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inner {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 4;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lhs h1 {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 61px;
+  color: #f7f7f7;
+}
+
+.lhs h1 span {
+  color: #f0e021;
+}
+
+.learn__ctn {
+  display: flex;
+  align-items: center;
+}
+
+.learn__ctn button {
+  width: 159px;
+  height: 60px;
+  background: #f4e858;
+  border-radius: 5px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #333333;
+  cursor: pointer;
+}
+
+.learn__ctn button:hover {
+  background: #f0e021;
+}
+
+.watch__ctn {
+  margin-left: 3em;
+  display: flex;
+  align-items: center;
+}
+
+.watch__ctn p {
+  font-weight: 700;
+  font-size: 16px;
+  color: #f7f7f7;
+  margin-left: 2em;
+}
+
+.rhs {
+  height: 100%;
+}
+
+.rhs .numbering {
+  flex: 1;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #999999;
+  margin: 8em auto;
+}
