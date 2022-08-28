@@ -12,6 +12,7 @@
 
 .logo__ctn {
   flex: 1;
+  display: flex;
 }
 
 .logo__ctn span:nth-child(2) {

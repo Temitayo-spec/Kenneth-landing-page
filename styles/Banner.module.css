@@ -7,7 +7,6 @@
 .bg__img {
   width: 100%;
   height: 100%;
-  position: absolute;
 }
 
 .bg__img img {
@@ -23,7 +22,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 4;
 }
 
@@ -91,4 +93,8 @@
   line-height: 20px;
   color: #999999;
   margin: 8em auto;
+}
+
+.active {
+  color: #fff !important;
 }
