@@ -1,8 +1,11 @@
 import React from "react";
 import styles from "../styles/Navbar.module.css";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const { pathname } = useRouter();
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
@@ -90,11 +93,51 @@ const Navbar = () => {
           </div>
           <div className={styles.bottom}>
             <ul className={styles.links__ctn}>
-              <li className={styles.links}>Home</li>
-              <li className={styles.links}>About</li>
-              <li className={styles.links}>Services</li>
-              <li className={styles.links}>Gallery</li>
-              <li className={styles.links}>Contact</li>
+              <li
+                className={`${styles.links} ${
+                  pathname === "/" && styles.route
+                }`}
+              >
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li
+                className={`${styles.links} ${
+                  pathname === "/about" && styles.route
+                }`}
+              >
+                <Link href="/about">
+                  <a>About</a>
+                </Link>
+              </li>
+              <li
+                className={`${styles.links} ${
+                  pathname === "/services" && styles.route
+                }`}
+              >
+                <Link href="/services">
+                  <a>Services</a>
+                </Link>
+              </li>
+              <li
+                className={`${styles.links} ${
+                  pathname === "/gallery" && styles.route
+                }`}
+              >
+                <Link href="/gallery">
+                  <a>Gallery</a>
+                </Link>
+              </li>
+              <li
+                className={`${styles.links} ${
+                  pathname === "/contact" && styles.route
+                }`}
+              >
+                <Link href="/contact">
+                  <a>Contact</a>
+                </Link>
+              </li>
               <button type="button" className={styles.donate}>
                 Donate
               </button>

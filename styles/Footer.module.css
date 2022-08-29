@@ -1,0 +1,103 @@
+.wrapper {
+  height: 696px;
+  background: url("/images/farm-outline.png") bottom right no-repeat, #017d3f;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 3em;
+}
+
+.icon__ctn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.icon__ctn .icons {
+  cursor: pointer;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon__ctn .icons:hover {
+  background: #f4e858;
+  border-radius: 50%;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.footer__logo h1 {
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  color: #f7f7f7;
+  text-transform: uppercase;
+}
+
+.footer__logo h1 span {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.35em;
+  color: #f7f7f7;
+}
+
+.footer__logo p {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #f7f7f7;
+}
+
+.company h1,
+.services__ctn h1,
+.contact__ctn h1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  color: #ffffff;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.link span {
+  margin-right: 1em;
+}
+
+.link a {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #eeeeee;
+  position: relative;
+}
+
+.link a::after {
+  content: "";
+  background: #eeeeee;
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.link a:hover::after {
+  width: 100%;
+}
