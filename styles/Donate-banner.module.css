@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 2em auto;
+  gap: 2em;
+}
+
+.wrapper h1 {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 61px;
+  color: #01a453;
+  flex: 2;
+}
+
+.img__ctn {
+  width: 100%;
+  margin-left: auto;
+  display: flex;
+  flex: 1.8;
+}
+
+.img__ctn img {
+  width: 100%;
+  margin-left: auto;
+}

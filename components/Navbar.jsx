@@ -7,7 +7,11 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const { pathname } = useRouter();
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={`${styles.wrapper} ${
+        pathname === "/contact" && styles.change__bg
+      } ${pathname === "/donate" && styles.change__bg}`}
+    >
       <div className={styles.inner}>
         <div className={styles.logo__ctn}>
           <span>
@@ -138,9 +142,13 @@ const Navbar = () => {
                   <a>Contact</a>
                 </Link>
               </li>
-              <button type="button" className={styles.donate}>
-                Donate
-              </button>
+              <Link href="/donate">
+                <a>
+                  <button type="button" className={styles.donate}>
+                    Donate
+                  </button>
+                </a>
+              </Link>
             </ul>
           </div>
         </div>
