@@ -13,20 +13,20 @@ const Mission = () => {
             <header>
               <Image
                 src="/svgs/ic-lemon.svg"
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 alt="lemon"
               />
               <Image
                 src="/svgs/ic-lemon.svg"
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 alt="lemon"
               />
               <Image
                 src="/svgs/ic-lemon.svg"
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 alt="lemon"
               />
             </header>
@@ -43,20 +43,20 @@ const Mission = () => {
             <header>
               <Image
                 src="/svgs/ic-lemon.svg"
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 alt="lemon"
               />
               <Image
                 src="/svgs/ic-lemon.svg"
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 alt="lemon"
               />
               <Image
                 src="/svgs/ic-lemon.svg"
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 alt="lemon"
               />
             </header>

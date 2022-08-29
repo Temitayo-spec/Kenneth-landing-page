@@ -5,6 +5,7 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import AboutLite from "../components/AboutLite";
 import Mission from "../components/Mission";
+import Stats from "../components/Stats";
 
 const about = () => {
   return (
@@ -15,6 +16,7 @@ const about = () => {
         <div className={styles.about__inner}>
           <AboutLite />
           <Mission />
+          <Stats />
         </div>
         <Footer />
       </div>
