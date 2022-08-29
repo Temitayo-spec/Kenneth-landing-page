@@ -36,7 +36,7 @@ const Banner = () => {
       <Fade {...properties}>
         {images.map((image, index) => (
           <div key={index} className={styles.bg__img}>
-            <img src={image} alt="play_img" />
+            <img src={image} alt="images" />
           </div>
         ))}
       </Fade>
