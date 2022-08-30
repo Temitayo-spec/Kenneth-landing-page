@@ -1,9 +1,54 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React from "react";
+
 import styles from "../styles/Mission.module.css";
 
 const Mission = () => {
+  const textVariants = {
+    offscreen: {
+      opacity: 0,
+      y: -100,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
+  const imageAnimate = {
+    offscreen: {
+      opacity: 0,
+      scale: 0,
+      transition: {
+        type: "bounce",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "bounce",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
