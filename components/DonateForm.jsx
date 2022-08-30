@@ -17,7 +17,7 @@ const DonateForm = () => {
           <h1>Choose an amount</h1>
         </Slide>
         <div className={styles.buttons__ctn}>
-          <Slide cascade direction="top" triggerOnce>
+          <Slide cascade direction="top">
             <button type="button">
               <span>
                 <Image

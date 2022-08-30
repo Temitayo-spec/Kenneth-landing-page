@@ -1,14 +1,42 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 import styles from "../styles/Contact.module.css";
 
 const Contact = () => {
+  const textVariants = {
+    offscreen: {
+      opacity: 0,
+      y: -100,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
-        <header className={styles.header}>
-          <h4>Contact us</h4>
+        <motion.header
+          initial="offscreen"
+          whileInView="onscreen"
+          transition={{ staggerChildren: 0.5 }}
+          className={styles.header}
+        >
+          <motion.h4 variants={textVariants}>Contact us</motion.h4>
           <div className={styles.lemon__ctn}>
             <Image
               src="/svgs/ic-lemon.svg"
@@ -29,12 +57,19 @@ const Contact = () => {
               alt="lemon"
             />
           </div>
-          <h1>We Want To Hear From You</h1>
-        </header>
+          <motion.h1 variants={textVariants}>
+            We Want To Hear From You
+          </motion.h1>
+        </motion.header>
         <section className={styles.contact__ctn}>
-          <div className={styles.lhs}>
-            <h1>Get In Touch With Us</h1>
-            <div className={styles.icon__ctn}>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ staggerChildren: 0.5 }}
+            className={styles.lhs}
+          >
+            <motion.h1 variants={textVariants}>Get In Touch With Us</motion.h1>
+            <motion.div variants={textVariants} className={styles.icon__ctn}>
               {/* <div className={styles.icons}>
                   <Image
                     src="/svgs/ic-facebook.svg"
@@ -67,35 +102,67 @@ const Contact = () => {
                   height={17}
                 />
               </div>
-            </div>
-          </div>
-          <div className={styles.rhs}>
-            <form action="POST" className={styles.form}>
-              <header>
-                <h1>Send A Message</h1>
-                <p>We will respond in no time at all.</p>
-              </header>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ staggerChildren: 0.5 }}
+            className={styles.rhs}
+          >
+            <motion.form
+              initial="offscreen"
+              whileInView="onscreen"
+              transition={{ staggerChildren: 0.5 }}
+              action="POST"
+              className={styles.form}
+            >
+              <motion.header
+                initial="offscreen"
+                whileInView="onscreen"
+                transition={{ staggerChildren: 0.5 }}
+              >
+                <motion.h1 variants={textVariants}>Send A Message</motion.h1>
+                <motion.p variants={textVariants}>
+                  We will respond in no time at all.
+                </motion.p>
+              </motion.header>
 
-              <div className={styles.inputs__ctn}>
-                <input type="text" name="name" id="name" placeholder="Name*" />
-                <input
+              <motion.div
+                initial="offscreen"
+                whileInView="onscreen"
+                transition={{ staggerChildren: 0.5 }}
+                className={styles.inputs__ctn}
+              >
+                <motion.input
+                  variants={textVariants}
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name*"
+                />
+                <motion.input
+                  variants={textVariants}
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Email*"
                 />
-                <textarea
+                <motion.textarea
+                  variants={textVariants}
                   name="message"
                   id="message"
                   cols="30"
                   rows="10"
                   placeholder="Message"
-                ></textarea>
+                ></motion.textarea>
 
-                <button type="submit">Send A Message</button>
-              </div>
-            </form>
-          </div>
+                <motion.button variants={textVariants} type="submit">
+                  Send A Message
+                </motion.button>
+              </motion.div>
+            </motion.form>
+          </motion.div>
         </section>
       </div>
     </div>

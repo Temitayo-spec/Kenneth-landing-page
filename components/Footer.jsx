@@ -1,31 +1,84 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
+  const textVariants = {
+    offscreen: {
+      opacity: 0,
+      y: -100,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
+
+  const imageAnimate = {
+    offscreen: {
+      opacity: 0,
+      scale: 0,
+      transition: {
+        type: "bounce",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "bounce",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
-        <div className={styles.footer__logo}>
-          <Image
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          transition={{ staggerChildren: 0.5 }}
+          className={styles.footer__logo}
+        >
+          <motion.img
+            variants={imageAnimate}
             src="/svgs/logo-img.svg"
             alt="logo_image"
             className={styles.logo__img}
             width={100}
             height={100}
           />
-          <h1>
+          <motion.h1 variants={textVariants}>
             Kenneth&apos;s <br />
             <span>
               Hybrid <br /> Foundation
             </span>
-          </h1>
-          <p>
+          </motion.h1>
+          <motion.p variants={textVariants}>
             Kenneth’s Hybrid Foundation promises the best of agricultural
             produce and quality livestock.
-          </p>
-          <div className={styles.icon__ctn}>
+          </motion.p>
+          <motion.div variants={textVariants} className={styles.icon__ctn}>
             {/* <div className={styles.icons}>
               <Image
                 src="/svgs/ic-facebook-white.svg"
@@ -58,12 +111,22 @@ const Footer = () => {
                 height={17}
               />
             </div>
-          </div>
-        </div>
-        <div className={styles.company}>
-          <h1>Company</h1>
-          <div className={styles.lists}>
-            <div className={styles.link}>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          transition={{ staggerChildren: 0.5 }}
+          className={styles.company}
+        >
+          <motion.h1 variants={textVariants}>Company</motion.h1>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ staggerChildren: 0.5 }}
+            className={styles.lists}
+          >
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -75,8 +138,8 @@ const Footer = () => {
               <Link href="#">
                 <a>About Us</a>
               </Link>
-            </div>
-            <div className={styles.link}>
+            </motion.div>
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -88,14 +151,24 @@ const Footer = () => {
               <Link href="#">
                 <a>Mission Statement</a>
               </Link>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
-        <div className={styles.services__ctn}>
-          <h1>Services</h1>
-          <div className={styles.lists}>
-            <div className={styles.link}>
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          transition={{ staggerChildren: 0.5 }}
+          className={styles.services__ctn}
+        >
+          <motion.h1 variants={textVariants}>Services</motion.h1>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ staggerChildren: 0.5 }}
+            className={styles.lists}
+          >
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -107,8 +180,8 @@ const Footer = () => {
               <Link href="#">
                 <a>Crops and Fruits</a>
               </Link>
-            </div>
-            <div className={styles.link}>
+            </motion.div>
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -120,8 +193,8 @@ const Footer = () => {
               <Link href="#">
                 <a>Livestock</a>
               </Link>
-            </div>
-            <div className={styles.link}>
+            </motion.div>
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -133,14 +206,24 @@ const Footer = () => {
               <Link href="#">
                 <a>Poultry</a>
               </Link>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
-        <div className={styles.contact__ctn}>
-          <h1>Contact</h1>
-          <div className={styles.lists}>
-            <div className={styles.link}>
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          transition={{ staggerChildren: 0.5 }}
+          className={styles.contact__ctn}
+        >
+          <motion.h1 variants={textVariants}>Contact</motion.h1>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ staggerChildren: 0.5 }}
+            className={styles.lists}
+          >
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -152,8 +235,8 @@ const Footer = () => {
               <Link href="#">
                 <a>FAQ</a>
               </Link>
-            </div>
-            <div className={styles.link}>
+            </motion.div>
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -165,8 +248,8 @@ const Footer = () => {
               <Link href="#">
                 <a>Support</a>
               </Link>
-            </div>
-            <div className={styles.link}>
+            </motion.div>
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -178,8 +261,8 @@ const Footer = () => {
               <Link href="#">
                 <a>Privacy Policy</a>
               </Link>
-            </div>
-            <div className={styles.link}>
+            </motion.div>
+            <motion.div variants={textVariants} className={styles.link}>
               <span>
                 <Image
                   src="/svgs/ic-arrow-white.svg"
@@ -191,9 +274,9 @@ const Footer = () => {
               <Link href="#">
                 <a>Terms and Conditions</a>
               </Link>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
