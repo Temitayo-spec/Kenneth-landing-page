@@ -9,7 +9,7 @@ const contact = () => {
   return (
     <div className={styles.wrapper}>
       <Navbar />
-      <img src="/images/contact-banner.png" alt="" />
+      <img src="/images/contact-banner.png" className={styles.banner} alt="" />
       <Contact />
       <Footer />
     </div>

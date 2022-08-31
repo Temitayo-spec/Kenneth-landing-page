@@ -187,20 +187,28 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          <div className={styles.learn__more}>
-            <img
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ staggerChildren: 0.5 }}
+            className={styles.learn__more}
+          >
+            <motion.img
+              variants={imageAnimate}
               src="/images/about-small.png"
               alt="about_banner"
               className={styles.small__img}
             />
-            <div className={styles.texts}>
-              <p>
+            <motion.div className={styles.texts}>
+              <motion.p variants={textVariants}>
                 You can learn more about our mission statement and our goals for
                 the agricultural sector here.
-              </p>
-              <button type="button">Learn More</button>
-            </div>
-          </div>
+              </motion.p>
+              <motion.button variants={textVariants} type="button">
+                Learn More
+              </motion.button>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </div>

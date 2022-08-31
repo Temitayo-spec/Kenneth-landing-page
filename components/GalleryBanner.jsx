@@ -5,6 +5,28 @@ import { motion } from "framer-motion";
 import styles from "../styles/Gallery-banner.module.css";
 
 const GalleryBanner = () => {
+  const textVariants = {
+    offscreen: {
+      opacity: 0,
+      y: -100,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className={styles.wrapper}>
       <>
@@ -27,20 +49,29 @@ const GalleryBanner = () => {
               transition={{ duration: 1.2 }}
             >
               <motion.h1
-                initial={{ opacity: 0, translateY: -50 }}
-                animate={{ opacity: 1, translateY: 0 }}
-                transition={{ duration: 1 }}
+                initial={{ opacity: 0, translateX: -50 }}
+                whileInView={{ opacity: 1, translateX: 0 }}
+                transition={{ duration: 1.3 }}
               >
                 Take a walk through <br /> our gallery of our farm <br /> and
                 our pens for our <br /> animals
                 <span>.</span>
               </motion.h1>
             </motion.div>
-            <div className={styles.learn__ctn}>
-              <button type="button" className={styles.learn__more}>
+            <motion.div
+              inittial="offscreen"
+              whileInView="onscreen"
+              transition={{ staggerChildren: 0.5 }}
+              className={styles.learn__ctn}
+            >
+              <motion.button
+                variants={textVariants}
+                type="button"
+                className={styles.learn__more}
+              >
                 Learn More
-              </button>
-              <div className={styles.watch__ctn}>
+              </motion.button>
+              <motion.div variants={textVariants} className={styles.watch__ctn}>
                 <span>
                   <Image
                     src="/svgs/ic-play.svg"
@@ -50,8 +81,8 @@ const GalleryBanner = () => {
                   />
                 </span>
                 <p>Watch Video</p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </main>
       </div>

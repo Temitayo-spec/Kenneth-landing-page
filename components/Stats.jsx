@@ -1,27 +1,62 @@
 import React from "react";
+import { motion } from "framer-motion";
 import styles from "../styles/Stats.module.css";
 
 const Stats = () => {
+  const imageAnimate = {
+    offscreen: {
+      opacity: 0,
+      scale: 0,
+      transition: {
+        type: "bounce",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "bounce",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className={styles.wrapper}>
-      <div className={styles.inner}>
-        <div className={styles.stats}>
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        transition={{ staggerChildren: 0.5 }}
+        className={styles.inner}>
+        <motion.div
+          variants={imageAnimate}
+          className={styles.stats}>
           <h1>413</h1>
           <p>Projects</p>
-        </div>
-        <div className={styles.stats}>
+        </motion.div>
+        <motion.div
+          variants={imageAnimate}
+          className={styles.stats}>
           <h1>2144</h1>
           <p>Customers</p>
-        </div>
-        <div className={styles.stats}>
+        </motion.div>
+        <motion.div
+          variants={imageAnimate}
+          className={styles.stats}>
           <h1>140</h1>
           <p>Award</p>
-        </div>
-        <div className={styles.stats}>
+        </motion.div>
+        <motion.div
+          variants={imageAnimate}
+          className={styles.stats}>
           <h1>143</h1>
           <p>Products</p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

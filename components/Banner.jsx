@@ -16,7 +16,7 @@ const Banner = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const properties = {
-    duration: 8000,
+    duration: 6000,
     transitionDuration: 2000,
     infinite: true,
     arrows: false,
@@ -27,7 +27,8 @@ const Banner = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setImageIndex((imageIndex + 1) % images.length);
-    }, properties.duration + 1000);
+      console.log("9")
+    }, 9000);
     return () => clearInterval(interval);
   }, [images, properties, imageIndex]);
 

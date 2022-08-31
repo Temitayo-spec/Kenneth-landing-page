@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
+import { motion } from "framer-motion";
 import React from "react";
 
 import styles from "../styles/Mission.module.css";
@@ -49,13 +50,51 @@ const Mission = () => {
       },
     },
   };
+
+  const containerVariants = {
+    offscreen: {
+      opacity: 0,
+      x: -100,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className={styles.wrapper}>
-      <div className={styles.inner}>
-        <header className={styles.header}>
-          <div className={styles.vision__ctn}>
-            <h4>Vision</h4>
-            <header>
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        transition={{ staggerChildren: 0.5 }}
+        className={styles.inner}
+      >
+        <motion.header
+          initial="offscreen"
+          whileInView="onscreen"
+          transition={{ staggerChildren: 0.5 }}
+          className={styles.header}
+        >
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ staggerChildren: 0.5 }}
+            className={styles.vision__ctn}
+          >
+            <motion.h4 variants={textVariants}>Vision</motion.h4>
+            <motion.header variants={containerVariants}>
               <Image
                 src="/svgs/ic-lemon.svg"
                 width={30}
@@ -74,18 +113,23 @@ const Mission = () => {
                 height={30}
                 alt="lemon"
               />
-            </header>
-            <h1>Our Vision</h1>
-            <p>
+            </motion.header>
+            <motion.h1 variants={textVariants}>Our Vision</motion.h1>
+            <motion.p variants={textVariants}>
               To create a link for the access of improved breeds of various farm
               animals and crops unhindered to local farmers and to ensure the
               increase in bounty production, job and food security to the globe
               for strong reliability in agriculture.
-            </p>
-          </div>
-          <div className={styles.vision__ctn}>
-            <h4>Mission</h4>
-            <header>
+            </motion.p>
+          </motion.div>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ staggerChildren: 0.5 }}
+            className={styles.vision__ctn}
+          >
+            <motion.h4 variants={textVariants}>Mission</motion.h4>
+            <motion.header variants={containerVariants}>
               <Image
                 src="/svgs/ic-lemon.svg"
                 width={30}
@@ -104,17 +148,18 @@ const Mission = () => {
                 height={30}
                 alt="lemon"
               />
-            </header>
-            <h1>Our Mission</h1>
-            <p>
+            </motion.header>
+            <motion.h1 variants={textVariants}>Our Mission</motion.h1>
+            <motion.p variants={textVariants}>
               We are set on coordinating the desire for the support of many like
               minded to ensure better yields in agriculture with ease for the
               locals through the proper channels to reach this goal.
-            </p>
-          </div>
-        </header>
-        <div className={styles.large__img__ctn}>
-          <img
+            </motion.p>
+          </motion.div>
+        </motion.header>
+        <motion.div variants={imageAnimate} className={styles.large__img__ctn}>
+          <motion.img
+            variants={imageAnimate}
             src="/images/future-img.png"
             className={styles.large__img}
             alt=""
@@ -128,8 +173,8 @@ const Mission = () => {
             />
             <h1>The Future Of Agriculture</h1>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

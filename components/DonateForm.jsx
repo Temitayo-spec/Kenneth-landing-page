@@ -5,65 +5,87 @@ import { motion } from "framer-motion";
 import styles from "../styles/Donate-form.module.css";
 
 const DonateForm = () => {
-  const props = {
-    type: "spring",
-    stiffness: 100,
-    damping: 15,
+  const textVariants = {
+    offscreen: {
+      opacity: 0,
+      y: -100,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
   };
   return (
     <div className={styles.wrapper}>
-      <div className={styles.inner}>
-        <Slide direction="right">
-          <h1>Choose an amount</h1>
-        </Slide>
-        <div className={styles.buttons__ctn}>
-          <Slide cascade direction="top">
-            <button type="button">
-              <span>
-                <Image
-                  src="/svgs/ic-naira.svg"
-                  height={16}
-                  width={20}
-                  alt="naira_symbol"
-                />
-              </span>
-              1000
-            </button>
-            <button type="button">
-              <span>
-                <Image
-                  src="/svgs/ic-naira.svg"
-                  height={16}
-                  width={20}
-                  alt="naira_symbol"
-                />
-              </span>
-              2000
-            </button>
-            <button type="button">
-              <span>
-                <Image
-                  src="/svgs/ic-naira.svg"
-                  height={16}
-                  width={20}
-                  alt="naira_symbol"
-                />
-              </span>
-              3000
-            </button>
-            <button type="button">
-              <span>
-                <Image
-                  src="/svgs/ic-naira.svg"
-                  height={16}
-                  width={20}
-                  alt="naira_symbol"
-                />
-              </span>
-              4000
-            </button>
-          </Slide>
-        </div>
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        transition={{ staggerChildren: 0.5 }}
+        className={styles.inner}
+      >
+        <motion.h1 variants={textVariants}>Choose an amount</motion.h1>
+
+        <motion.div
+          transition={{ staggerChildren: 0.5 }}
+          className={styles.buttons__ctn}
+        >
+          <motion.button variants={textVariants} type="button">
+            <span>
+              <Image
+                src="/svgs/ic-naira.svg"
+                height={16}
+                width={20}
+                alt="naira_symbol"
+              />
+            </span>
+            1000
+          </motion.button>
+          <motion.button variants={textVariants} type="button">
+            <span>
+              <Image
+                src="/svgs/ic-naira.svg"
+                height={16}
+                width={20}
+                alt="naira_symbol"
+              />
+            </span>
+            2000
+          </motion.button>
+          <motion.button variants={textVariants} type="button">
+            <span>
+              <Image
+                src="/svgs/ic-naira.svg"
+                height={16}
+                width={20}
+                alt="naira_symbol"
+              />
+            </span>
+            3000
+          </motion.button>
+          <motion.button variants={textVariants} type="button">
+            <span>
+              <Image
+                src="/svgs/ic-naira.svg"
+                height={16}
+                width={20}
+                alt="naira_symbol"
+              />
+            </span>
+            4000
+          </motion.button>
+        </motion.div>
         <Slide left>
           <h2>OR</h2>
         </Slide>
@@ -72,24 +94,16 @@ const DonateForm = () => {
             <Fade cascade direction="top">
               <motion.div
                 initial={{
-                  y: -100,
+                  x: -100,
                   opacity: 0,
-                  scale: 0.5,
                   transition: {
-                    y: props,
-                    opacity: props,
-                    scale: props,
                     duration: 1,
                   },
                 }}
-                animate={{
-                  y: 0,
+                whileInView={{
+                  x: 0,
                   opacity: 1,
-                  scale: 1,
                   transition: {
-                    y: props,
-                    opacity: props,
-                    scale: props,
                     duration: 1,
                   },
                 }}
@@ -100,24 +114,16 @@ const DonateForm = () => {
               </motion.div>
               <motion.div
                 initial={{
-                  y: -100,
+                  x: -100,
                   opacity: 0,
-                  scale: 0.5,
                   transition: {
-                    y: props,
-                    opacity: props,
-                    scale: props,
                     duration: 1,
                   },
                 }}
-                animate={{
-                  y: 0,
+                whileInView={{
+                  x: 0,
                   opacity: 1,
-                  scale: 1,
                   transition: {
-                    y: props,
-                    opacity: props,
-                    scale: props,
                     duration: 1,
                   },
                 }}
@@ -128,24 +134,16 @@ const DonateForm = () => {
               </motion.div>
               <motion.div
                 initial={{
-                  y: -100,
+                  x: -100,
                   opacity: 0,
-                  scale: 0.5,
                   transition: {
-                    y: props,
-                    opacity: props,
-                    scale: props,
                     duration: 1,
                   },
                 }}
-                animate={{
-                  y: 0,
+                whileInView={{
+                  x: 0,
                   opacity: 1,
-                  scale: 1,
                   transition: {
-                    y: props,
-                    opacity: props,
-                    scale: props,
                     duration: 1,
                   },
                 }}
@@ -156,27 +154,22 @@ const DonateForm = () => {
               </motion.div>
             </Fade>
           </div>
-          <div className={styles.bottom__layer}>
+          <motion.div
+            transition={{ staggerChildren: 0.3 }}
+            className={styles.bottom__layer}
+          >
             <motion.div
               initial={{
                 y: -100,
                 opacity: 0,
-                scale: 0.5,
                 transition: {
-                  y: props,
-                  opacity: props,
-                  scale: props,
                   duration: 1,
                 },
               }}
-              animate={{
+              whileInView={{
                 y: 0,
                 opacity: 1,
-                scale: 1,
                 transition: {
-                  y: props,
-                  opacity: props,
-                  scale: props,
                   duration: 1,
                 },
               }}
@@ -191,20 +184,14 @@ const DonateForm = () => {
                 opacity: 0,
                 scale: 0.5,
                 transition: {
-                  y: props,
-                  opacity: props,
-                  scale: props,
                   duration: 1,
                 },
               }}
-              animate={{
+              whileInView={{
                 y: 0,
                 opacity: 1,
                 scale: 1,
                 transition: {
-                  y: props,
-                  opacity: props,
-                  scale: props,
                   duration: 1,
                 },
               }}
@@ -219,20 +206,14 @@ const DonateForm = () => {
                 opacity: 0,
                 scale: 0.5,
                 transition: {
-                  y: props,
-                  opacity: props,
-                  scale: props,
                   duration: 1,
                 },
               }}
-              animate={{
+              whileInView={{
                 y: 0,
                 opacity: 1,
                 scale: 1,
                 transition: {
-                  y: props,
-                  opacity: props,
-                  scale: props,
                   duration: 1,
                 },
               }}
@@ -241,10 +222,30 @@ const DonateForm = () => {
               <label htmlFor="number">Postal code</label>
               <input type="text" id="number" placeholder="Zip Code" />
             </motion.div>
-          </div>
-          <button type="submit">Donate</button>
+          </motion.div>
+          <motion.button
+            initial={{
+              y: -100,
+              opacity: 0,
+              scale: 0.5,
+              transition: {
+                duration: 1,
+              },
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              transition: {
+                duration: 1,
+              },
+            }}
+            type="submit"
+          >
+            Donate
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };
